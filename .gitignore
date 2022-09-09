@@ -1,1 +1,4 @@
+bootloader/**
+modules/**
+tools/**
 zephyr/**
