@@ -1,7 +1,11 @@
 manifest:
+  self:
+    path: zephyrtime
+
   remotes:
     - name: zephyrproject-rtos
       url-base: https://github.com/zephyrproject-rtos
+
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
