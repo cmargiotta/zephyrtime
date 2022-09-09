@@ -16,12 +16,14 @@
       in
       rec {
         devShell = pkgs.devshell.mkShell {
-          name = "zephyr-pinetime";
+          name = "zephyrtime";
           bash = {
             extra = ''
               export LD_INCLUDE_PATH="$DEVSHELL_DIR/include"
               export LD_LIB_PATH="$DEVSHELL_DIR/lib"
               west init 2> /dev/null
+              west update
+              west zephyr-export
             '';
             interactive = "";
           };
