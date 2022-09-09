@@ -15,25 +15,52 @@
 
       in
       rec {
+        nixConfig.sandbox = "relaxed";
         devShell = pkgs.devshell.mkShell {
           name = "zephyrtime";
           bash = {
             extra = ''
               export LD_INCLUDE_PATH="$DEVSHELL_DIR/include"
               export LD_LIB_PATH="$DEVSHELL_DIR/lib"
+              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+              export GNUARMEMB_TOOLCHAIN_PATH=${pkgs.gcc-arm-embedded}
+
               west init 2> /dev/null
               west update
               west zephyr-export
+
+              source ./zephyr/zephyr-env.sh
+
+              west completion bash > completion.sh
+              source completion.sh
             '';
             interactive = "";
           };
           commands = [
+            {
+              name = "build";
+              help = "Clear CMake cache and build the project";
+              command = "rm build/CMakeCache.txt && west build";
+            }
           ];
           env = [
           ];
-          packages = [
-            pkgs.python39Packages.west
-          ];
+          packages =
+            let
+              python_full = pkgs.python310.withPackages (p: with p; [
+                west
+                pyelftools
+              ]);
+            in
+            with pkgs;
+            [
+              cmake
+              ninja
+              nrf5-sdk
+              gcc-arm-embedded
+
+              python_full
+            ];
         };
       });
 }
