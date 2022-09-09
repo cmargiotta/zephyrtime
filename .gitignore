@@ -3,3 +3,5 @@ build/**
 modules/**
 tools/**
 zephyr/**
+
+completion.sh
