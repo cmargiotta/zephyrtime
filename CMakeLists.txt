@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-set(BOARD nrf52dk_nrf52810)
+set(BOARD pinetime_devkit0)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
