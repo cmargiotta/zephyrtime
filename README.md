@@ -1,4 +1,5 @@
 # zephyrtime
+![Alla pugna!](https://img.shields.io/badge/ALLA-PUGNA-F70808)
 
 To enable the nix environment:
 ```bash
