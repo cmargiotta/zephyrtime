@@ -4,4 +4,6 @@ modules/**
 tools/**
 zephyr/**
 
+.cache/**
+
 completion.sh
