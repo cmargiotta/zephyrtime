@@ -1,6 +1,7 @@
 bootloader/**
 build/**
 modules/**
+qemu-build/**
 tools/**
 zephyr/**
 
