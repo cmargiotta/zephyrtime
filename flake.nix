@@ -42,6 +42,11 @@
               help = "Clear CMake cache and build the project";
               command = "rm build/CMakeCache.txt && west build --board=pinetime_devkit0";
             }
+            {
+              name = "qemu-run";
+              help = "Build and run for a qemu target";
+              command = "rm -rf qemu-build || true && west build --board=qemu_cortex_m3 --build-dir=qemu-build -t run";
+            }
           ];
           env = [
           ];
@@ -58,6 +63,9 @@
               ninja
               nrf5-sdk
               gcc-arm-embedded
+              gcc
+              SDL2
+              qemu
 
               python_full
             ];
