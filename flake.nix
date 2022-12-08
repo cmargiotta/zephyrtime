@@ -40,7 +40,7 @@
             {
               name = "build";
               help = "Clear CMake cache and build the project";
-              command = "rm build/CMakeCache.txt && west build --board=pinetime_devkit0";
+              command = "rm build/CMakeCache.txt || true && west build --board=pinetime_devkit0";
             }
             {
               name = "qemu-run";
