@@ -1,10 +1,10 @@
 bootloader/**
 build/**
 modules/**
-qemu-build/**
 tools/**
 zephyr/**
 
 .cache/**
+.west/**
 
 completion.sh
